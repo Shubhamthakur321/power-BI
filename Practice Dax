@@ -12,3 +12,11 @@ SUMM_USING_CAL_TABLE_FILTER = CALCULATETABLE(
 "Retrun amount",SUMX(Orders,Orders[Unit Price]*Orders[Quantity ordered new])),
 Returns[Status]="Returned"
 )
+
+Question3:-
+Syntex :- 
+SUMMARIZECOLUMNS(<GROUP_BY_COLUMNNAME1..2..3..>,<FILTER_TABALE>..... ,<NAME>,<EXPRESSION>)
+
+summarizecolumn = SUMMARIZECOLUMNS(Orders[City],Orders[Customer Segment],
+FILTER(Returns,Returns[Status]="Returned"),"AMOUT TO RETRUNED",
+SUMX(Orders,Orders[Unit Price]*Orders[Quantity ordered new]))
