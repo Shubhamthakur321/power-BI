@@ -20,3 +20,11 @@ SUMMARIZECOLUMNS(<GROUP_BY_COLUMNNAME1..2..3..>,<FILTER_TABALE>..... ,<NAME>,<EX
 summarizecolumn = SUMMARIZECOLUMNS(Orders[City],Orders[Customer Segment],
 FILTER(Returns,Returns[Status]="Returned"),"AMOUT TO RETRUNED",
 SUMX(Orders,Orders[Unit Price]*Orders[Quantity ordered new]))
+
+Question 4: Group by function in DAX
+SYNTEX - 
+GROUPBY(<TABLE>,<GROUP_BY_COLUMNNAME1..2..3..4...>,<NAME>,<"EXPRESSION">)
+
+groupby = GROUPBY(FILTER(Orders,RELATED(Returns[Status])="Returned"),
+Orders[City],Orders[Customer Segment],"Amount",SUMX(CURRENTGROUP(),
+Orders[Unit Price]*Orders[Quantity ordered new]))
