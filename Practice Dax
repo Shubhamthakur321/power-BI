@@ -3,3 +3,12 @@ Question : - Summarize the column and fatch the city and segments column from or
 Retrun_table = SUMMARIZE(FILTER(Orders,RELATED(Returns[Status])= "Returned"),
 Orders[City],Orders[Customer Segment],
 "Return Amount",SUMX(Orders,Orders[Unit Price]*Orders[Quantity ordered new]))
+
+
+Question 2:-
+Filter the column of retruned item and summarize the order table fatch the city and segemnts column
+SUMM_USING_CAL_TABLE_FILTER = CALCULATETABLE(
+    SUMMARIZE(Orders,Orders[City],Orders[Customer Segment],
+"Retrun amount",SUMX(Orders,Orders[Unit Price]*Orders[Quantity ordered new])),
+Returns[Status]="Returned"
+)
