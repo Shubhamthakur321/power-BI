@@ -1,1 +1,5 @@
+Question : - Summarize the column and fatch the city and segments column from order table and filter the only retrun iteam from the Returened Table
 
+Retrun_table = SUMMARIZE(FILTER(Orders,RELATED(Returns[Status])= "Returned"),
+Orders[City],Orders[Customer Segment],
+"Return Amount",SUMX(Orders,Orders[Unit Price]*Orders[Quantity ordered new]))
